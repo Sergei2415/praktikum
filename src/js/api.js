@@ -2,9 +2,13 @@
 
 export default class Api {
   constructor(cohort, authorization, base, receiving, cards, update) {
+
     this.cohort = cohort
     this.authorization = authorization
     this.base = base
+    if (process.env.NODE_ENV == 'development'){
+      this.base ="http://praktikum.tk/"
+    }
     this.receiving = receiving
     this.cards = cards
     this.update = update
