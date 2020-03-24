@@ -9,7 +9,10 @@
 }
 
 .place-card__like-icon_liked {
+  background-image: url(../../../images/close.svg);
+  background-image: url(../../../images/logo.svg);
   background-image: url(../../../images/like-active.svg);
+  
 }
 
 .place-card__like-icon:hover {
