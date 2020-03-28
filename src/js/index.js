@@ -11,7 +11,7 @@ import FormValidator from "./formvalidator.js"
 
 
 (function () {
-  console.log(123)
+ 
   const container = document.querySelector('.places-list');
   const add_inf = document.forms.new;
   const increase = document.querySelector(".increase-card")

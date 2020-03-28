@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
 module.exports = {
-  entry: { main: './js/index.js' },
+  entry: { main: './src/js/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js'
@@ -31,13 +31,20 @@ module.exports = {
       {
         test: /\.(png|jpg|gif|ico|svg)$/,
         use: [
-          'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
-          {
-            loader: 'image-webpack-loader',
-            options: {}
-          },
-        ]
-      },
+            {
+                loader: 'file-loader',
+                options: {
+                    name: './images/[name].[ext]',
+                    esModule: false
+                },
+            },
+            {
+                loader: 'image-webpack-loader',
+                options: {
+                },
+            },
+        ],
+    },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file-loader?name=./vendor/[name].[ext]'
@@ -58,7 +65,7 @@ module.exports = {
 }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './index.html',
+      template: './src/index.html',
       filename: 'index.html'
     }),
     new WebpackMd5Hash(),
